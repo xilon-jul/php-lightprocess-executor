@@ -1,0 +1,25 @@
+{
+    "name": "jpons/phplib-lightprocessexecutor",
+    "description": "A PHP 5.4 process executor implementation.",
+    "keywords": [
+		"process",
+		"ipc",
+		"mutli-process",
+		"fork"        
+    ],
+    "authors": [
+        {
+            "name": "Julien Pons",
+            "email": "xilon.ju@gmail.com",
+            "homepage": "https://blog.gaia-solutions.com",
+            "role": "Developper"
+        }
+    ],
+    "license": "LGPL-3.0",
+    "autoload": {
+        "psr-0": { "LightProcessExecutor": ["."] }
+    },
+    "scripts": {
+        "pre-install-cmd": ["LightProcessExecutor\\Composer\\LightProcessExecutorRequirements::preInstall"]
+    }
+}
