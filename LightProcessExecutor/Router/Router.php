@@ -763,7 +763,7 @@ class Router {
 			if($buflen < $headerSize + $payloadLen){
 				return;
 			}
-			print "recv() [fd: $fd, id:{$udata['head6']} (or {$udata['head6']}), request ack:$ack, ack: $isAck, broadcast: $broadcast, urgent: $urgent, dst: $dst, remote: $dstRemote, origin: $origin, from: $comesFromPid, me: ".posix_getpid()."]\n";
+			#print "recv() [fd: $fd, id:{$udata['head6']} (or {$udata['head6']}), request ack:$ack, ack: $isAck, broadcast: $broadcast, urgent: $urgent, dst: $dst, remote: $dstRemote, origin: $origin, from: $comesFromPid, me: ".posix_getpid()."]\n";
 			// From now on we have at least enough bytes to retrieve several messages (eg: user payload)
 			// Processes as many bytes as possible and reset buffer for next processing
 			$payload = substr($this->readBuffer[$fd], $headerSize, $payloadLen);
