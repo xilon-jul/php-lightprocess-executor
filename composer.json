@@ -11,15 +11,16 @@
         {
             "name": "Julien Pons",
             "email": "xilon.ju@gmail.com",
-            "homepage": "https://blog.gaia-solutions.com",
-            "role": "Developper"
+            "homepage": "https://github.com/xilon-jul",
+            "role": "Maintainer"
         }
     ],
     "license": "LGPL-3.0",
     "autoload": {
         "psr-0": { "LightProcessExecutor": ["."] }
     },
-    "scripts": {
-        "pre-install-cmd": ["LightProcessExecutor\\Composer\\LightProcessExecutorRequirements::preInstall"]
+    "requires":{
+        "ext-event": "1.11.1",
+        "php": "~5.4"
     }
 }
