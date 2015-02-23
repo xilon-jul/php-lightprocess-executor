@@ -154,10 +154,10 @@ class PosixSignalBarrier implements BarrierInterface {
 			sem_release($this->semaphore);
 			$siginfo = [];
 			if($timeout !== 0){
-				$ret = pcntl_sigtimedwait([$this->signal], $siginfo, $timeout);
+				$ret = pcntl_sigtimedwait(array($this->signal), $siginfo, $timeout);
 			}
 			else {
-				$ret = pcntl_sigwaitinfo( [$this->signal], $siginfo);
+				$ret = pcntl_sigwaitinfo( array($this->signal), $siginfo);
 			}
 			if($ret === -1){
 				// Mark the shared memory segment broken variable as true and notify all processes
@@ -241,7 +241,7 @@ class PosixSignalBarrier implements BarrierInterface {
 	 */
 	public function __sleep(){
 		$this->detach();
-		return ['parties', 'key', 'tmpfile', 'shmSegmentSize', 'signal'];
+		return array('parties', 'key', 'tmpfile', 'shmSegmentSize', 'signal');
 	}
 
 	

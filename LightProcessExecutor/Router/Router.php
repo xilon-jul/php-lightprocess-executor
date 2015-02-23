@@ -111,7 +111,7 @@ class Router {
 	
 	private $name = NULL;
 	
-	private $routes = [];
+	private $routes = array();
 
 	/**
 	 * @deprecated rethink the concept of a complete operation and its utility for a developper
@@ -124,14 +124,14 @@ class Router {
 	 * @var boolean same as above except this targets a receive operation
 	 */
 	private $routerReceiveOperationCompleted = false;
-	private $messageListeners = [];
+	private $messageListeners = array();
 	
 	/**
 	 * A message stores is used when CONFIG_PROC_CTX is set on this router. It's own goal is to store sent messages
 	 * to avoid fire listeners more than once
 	 * @var array keyed with the message identifier, and value the number of times this message has been sent 
 	 */
-	private $mstore = []; 
+	private $mstore = array(); 
 	
 	private $urgentMode = false;
 	
@@ -144,7 +144,7 @@ class Router {
 	private $writeBuffer = '';
 	
 	// Send message stack
-	private $writestack = [];
+	private $writestack = array();
 	
 	// The current stack element router is working with 
 	private $currentStackEl = NULL;
@@ -271,10 +271,10 @@ class Router {
 	 * @param array $args specific args to be transmitted to the underlying libevent callback handling those file descriptors
 	 * @return void
 	 */
-	public function addRoute($pid, $fd, array $args = []) {
-		$eread = new \Event($this->base, $fd, \Event::READ | \Event::PERSIST, array($this, 'recv'), array_merge([&$eread], [$pid], $args));
-		$ewrite = new \Event($this->base, $fd, \Event::WRITE | \Event::PERSIST, array($this, 'ewrite'), array_merge([&$ewrite], [$pid], $args, ['first_stack' => true]));
-		$this->routes[$pid] = ['pid' => $pid, 'fd' => $fd, 'eread' => &$eread, 'ewrite' => &$ewrite, 'eread_args' => array_merge([&$eread], [$pid], $args), 'ewrite_args' => array_merge([&$ewrite], [$pid], $args)];
+	public function addRoute($pid, $fd, array $args = array()) {
+		$eread = new \Event($this->base, $fd, \Event::READ | \Event::PERSIST, array($this, 'recv'), array_merge(array(&$eread), array($pid), $args));
+		$ewrite = new \Event($this->base, $fd, \Event::WRITE | \Event::PERSIST, array($this, 'ewrite'), array_merge(array(&$ewrite), array($pid), $args, array('first_stack' => true)));
+		$this->routes[$pid] = array('pid' => $pid, 'fd' => $fd, 'eread' => &$eread, 'ewrite' => &$ewrite, 'eread_args' => array_merge(array(&$eread), array($pid), $args), 'ewrite_args' => array_merge(array(&$ewrite), array($pid), $args));
 		$eread->add();
 	}
 	
@@ -318,7 +318,7 @@ class Router {
 	public function flushWrites($firstStacked = true){
 		foreach($this->routes as $pid => $route){
 			$route['ewrite']->del();
-			$this->ewrite($route['fd'], \Event::WRITE, array_merge($route['ewrite_args'], ['first_stack' => $firstStacked]));
+			$this->ewrite($route['fd'], \Event::WRITE, array_merge($route['ewrite_args'], array('first_stack' => $firstStacked)));
 			$route['ewrite']->add();
 		}
 	}
@@ -347,7 +347,7 @@ class Router {
 		$n = 0;
 		foreach($this->writestack as $fd => &$messages){
 			$n += count($messages);
-			$messages = [];
+			$messages = array();
 		}
 		unset($messages);
 		return $n;
@@ -360,7 +360,7 @@ class Router {
 	 * @see MessageEvent the message event class definition
 	 * @return void
 	 */
-	protected function fireRouterEventListener($method, array $args = []) {
+	protected function fireRouterEventListener($method, array $args = array()) {
 		foreach ($this->messageListeners as $l) {
 			call_user_func_array(array($l, $method), $args);
 		}
@@ -371,7 +371,7 @@ class Router {
 	 * @param array $listeners an array of RouterEventListener instances
 	 * @return void
 	 */
-	public function setRouterEventListeners(array $listeners = []){
+	public function setRouterEventListeners(array $listeners = array()){
 		$this->messageListeners = $listeners;
 		usort($this->messageListeners, array($this, 'routerEventComparisonFunction'));
 	}
@@ -426,7 +426,7 @@ class Router {
 			}
 		}
 		// reset index
-		$this->messageListeners = array_merge($this->messageListeners, []);
+		$this->messageListeners = array_merge($this->messageListeners, array());
 	}
 
 	/**
@@ -587,13 +587,13 @@ class Router {
 				$this->currentStackEl[$fd] = array_pop($this->writestack[intval($fd)]); 
 			}
 			// Pack message into a binary string
-			$this->writeBuffer[$fd] = call_user_func_array('pack', array_merge(["V11a{$this->currentStackEl[$fd]['dst_remote_alias_len']}Va*"], $this->currentStackEl[$fd]));
+			$this->writeBuffer[$fd] = call_user_func_array('pack', array_merge(array("V11a{$this->currentStackEl[$fd]['dst_remote_alias_len']}Va*"), $this->currentStackEl[$fd]));
 		}
 		while ($this->writeBuffer[$fd] !== '') {
 			
 			if (false === ($wrote = @socket_write($fd, $this->writeBuffer[$fd], self::SND_BUF_SIZE))) {
 				//fprintf(STDERR, "router ewrite() error : %d - %s", \EventUtil::getLastSocketErrno(), \EventUtil::getLastSocketError());
-				$this->fireRouterEventListener('onRouterError', [self::ROUTE_OP_SND, \EventUtil::getLastSocketErrno(), \EventUtil::getLastSocketError()]);
+				$this->fireRouterEventListener('onRouterError', array(self::ROUTE_OP_SND, \EventUtil::getLastSocketErrno(), \EventUtil::getLastSocketError()));
 				break;
 			}
 			$this->writeBuffer[$fd] = substr($this->writeBuffer[$fd], $wrote);
@@ -610,7 +610,7 @@ class Router {
 				// Notifies only the emitter process that sent the message (when broadcast is used)
 				if($this->config === self::CONFIG_RAW_CTX || ($this->currentStackEl[$fd]['src'] === posix_getpid() && $this->mstore[$this->currentStackEl[$fd]['id']] === 0)) {
 					try {
-						$this->fireRouterEventListener('onMessageSent', [new MessageEvent(
+						$this->fireRouterEventListener('onMessageSent', array(new MessageEvent(
 										$args[2], 
 										$this->currentStackEl[$fd]['serialize'] ? unserialize($this->currentStackEl[$fd]['data']) : $this->currentStackEl[$fd]['data'], 
 										$this->currentStackEl[$fd]['last_node_pid'],
@@ -620,11 +620,11 @@ class Router {
 										$this->currentStackEl[$fd]['urgent'],
 										$this->currentStackEl[$fd]['isAck'],
 										$this->currentStackEl[$fd]['broadcast']
-									)]);
+									)));
 					}
 					catch(\Exception $e) {
 						// Shutdown executor on exception
-						$this->fireRouterEventListener('onRouterError', [self::ROUTE_OP_SND, $e->getCode(), $e->getMessage(), $e]);
+						$this->fireRouterEventListener('onRouterError', array(self::ROUTE_OP_SND, $e->getCode(), $e->getMessage(), $e));
 					}
 					if(++$this->mstore[$this->currentStackEl[$fd]['id']] === count($this->routes)){
 						unset($this->mstore[$this->currentStackEl[$fd]['id']]);
@@ -704,7 +704,7 @@ class Router {
 		$buf = '';
 		if (false === ($bytes = @socket_recv($fd, $buf, self::RCV_BUF_SIZE, 0))) {
 			// fprintf(STDERR, "Router recv() error %d - %s\n", \EventUtil::getLastSocketErrno(), \EventUtil::getLastSocketError());
-			$this->fireRouterEventListener('onRouterError', [self::ROUTE_OP_RCV, \EventUtil::getLastSocketErrno(), \EventUtil::getLastSocketError()]);
+			$this->fireRouterEventListener('onRouterError', array(self::ROUTE_OP_RCV, \EventUtil::getLastSocketErrno(), \EventUtil::getLastSocketError()));
 			return;
 		}
 		if ($bytes === 0) {
@@ -715,14 +715,14 @@ class Router {
 			$pid = $args[1];
 			$this->executor->sighandler(SIGCHLD, 0, $pid);
 			
-			$messages = [];
+			$messages = array();
 			if(isset($this->writestack[intval($fd)]) && count($this->writestack[intval($fd)]) > 0) {
 				// There were messages that could not have been sent to this process
 				while( ($lm = array_shift($this->writestack[intval($fd)])) !== null) {
-					$messages[] = array_intersect_key($lm, ['dst', 'serialize', 'isAck', 'urgent', 'broadcast', 'data', 'dst_remote_alias']);
+					$messages[] = array_intersect_key($lm, array('dst', 'serialize', 'isAck', 'urgent', 'broadcast', 'data', 'dst_remote_alias'));
 				}
 			}
-			$this->fireRouterEventListener('onPeerShutdown', [$args[2], $pid, $messages]);
+			$this->fireRouterEventListener('onPeerShutdown', array($args[2], $pid, $messages));
 			// Free all messages that could not have been sent and free routes (would also free events)
 			$args[0]->free();
 			$this->removeRoute($pid);
@@ -847,10 +847,10 @@ class Router {
 				try {
 					$user_payload = $serialize ? unserialize($payload) : $payload;
 					$mObject = new MessageEvent($args[2], $user_payload, $origin, $dstRemote, $id, $fd, $this->isInterrupted() ? TRUE : $urgent, $isAck, $broadcast);
-					$this->fireRouterEventListener($listenerMethod, [$mObject]);
+					$this->fireRouterEventListener($listenerMethod, array($mObject));
 				}
 				catch(\Exception $e){
-					$this->fireRouterEventListener('onRouterError', [self::ROUTE_OP_RCV, $e->getCode(), $e->getMessage(), $e]);
+					$this->fireRouterEventListener('onRouterError', array(self::ROUTE_OP_RCV, $e->getCode(), $e->getMessage(), $e));
 				}
 			}
 			$this->routerReceiveOperationCompleted = true;

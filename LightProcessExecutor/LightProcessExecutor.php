@@ -166,7 +166,7 @@ class LightProcessExecutor {
 	 * A map of children this process has forked. Array keyed by the process identifier and that contains an array of contextual information as the value
 	 * @var array<int, array) 
 	 */
-	protected $children = [];
+	protected $children = array();
 	
 	/**
 	 * Underlying router object reponsible for handling IPC messages
@@ -184,10 +184,10 @@ class LightProcessExecutor {
 	 * A list of executor listeners
 	 * @var array of executor listeners
 	 */
-	private $executorListeners = [];
+	private $executorListeners = array();
 	
 	// A list of sockets left opened after forks, must be closed on exit
-	private $socketpair = [];
+	private $socketpair = array();
 	
 	/**
 	 * Gives an instance of an executor and binds itself a router object.
@@ -398,7 +398,7 @@ class LightProcessExecutor {
 					// Get child exit code
 					$code = pcntl_wexitstatus($status);
 					// fprintf(STDOUT, "Child %d exited with code $code\n", $pid);
-					$this->addProcessContextInfo($pid, ['uptime' => $uptime, 'termination_type' => self::PROC_TERM_TYPE_EXITED, 'status' => $code]);
+					$this->addProcessContextInfo($pid, array('uptime' => $uptime, 'termination_type' => self::PROC_TERM_TYPE_EXITED, 'status' => $code));
 					// $this->children[$pid] = ['termination_type' => self::PROC_TERM_TYPE_EXITED, 'status' => $code];
 				}
 				else if(pcntl_wifsignaled($status)){
@@ -406,7 +406,7 @@ class LightProcessExecutor {
 					$signo = pcntl_wtermsig($status);
 					// fprintf(STDOUT, "Child %d exited due to uncaught signal $signo\n", $pid);
 					// $this->children[$pid] = ['termination_type' => self::PROC_TERM_TYPE_SIGNAL, 'status' => $signo];
-					$this->addProcessContextInfo($pid, ['uptime' => $uptime, 'termination_type' => self::PROC_TERM_TYPE_SIGNAL, 'status' => $signo]);
+					$this->addProcessContextInfo($pid, array('uptime' => $uptime, 'termination_type' => self::PROC_TERM_TYPE_SIGNAL, 'status' => $signo));
 				}
 				// Free socket ressources in parent now that the child has gone, Routes are automatically freed by the router
 				$this->freeSocketResource($pid);
@@ -446,7 +446,7 @@ class LightProcessExecutor {
 	 * @param string $method the method to fire on the executor listener
 	 * @param array $args parameters to pass to the listener callback
 	 */
-	protected function fireExecutorListeners($method, $args = []){
+	protected function fireExecutorListeners($method, $args = array()){
 		foreach($this->executorListeners as $l){
 			call_user_func_array(array($l, $method), $args);
 		}
@@ -467,7 +467,7 @@ class LightProcessExecutor {
 	 */
 	public function fork($name = NULL, callable $parent = NULL, callable $chld = NULL) {
 		if($this->shutdown) throw new \Exception("Executor has been shut down");
-		$pairs = [];
+		$pairs = array();
 		if (false === socket_create_pair(AF_UNIX, SOCK_STREAM, 0, $pairs)) {
 			throw new \Exception("socket_create_pair() failed\n");
 		}
@@ -493,9 +493,9 @@ class LightProcessExecutor {
 		if ($chldpid > 0) {
 			socket_close($pairs[1]);
 			$this->socketpair[$chldpid][] = $pairs[0];
-			$this->children[$chldpid] = [];
-			$this->addProcessContextInfo($chldpid, ['uptime' => time(), 'termination_type' => self::PROC_TERM_TYPE_LIVING, 'status' => NULL]);
-			$this->router->addRoute($chldpid, $pairs[0], [$this]);
+			$this->children[$chldpid] = array();
+			$this->addProcessContextInfo($chldpid, array('uptime' => time(), 'termination_type' => self::PROC_TERM_TYPE_LIVING, 'status' => NULL));
+			$this->router->addRoute($chldpid, $pairs[0], array($this));
 			// Parent process does not need the other channel, close it
 			if (is_callable($parent)) {
 				call_user_func($parent, $this, $chldpid);
@@ -514,8 +514,8 @@ class LightProcessExecutor {
 			$this->router = new Router($this, $name);
 			$this->router->setUrgentSignal($signo);
 			$this->router->setRouterEventListeners($listeners);
-			$this->children = [];
-			$this->router->addRoute(posix_getppid(), $pairs[1], [$this]);
+			$this->children = array();
+			$this->router->addRoute(posix_getppid(), $pairs[1], array($this));
 			// Child process
 			if (is_callable($chld)) {
 				call_user_func($chld, $this);
@@ -567,7 +567,7 @@ class LightProcessExecutor {
 	 * @return void
 	 */
 	public function shutdown(){
-		$this->fireExecutorListeners("onShutdown", [$this]);
+		$this->fireExecutorListeners("onShutdown", array($this));
 		$this->shutdown = TRUE;
 	}
 	
@@ -602,9 +602,9 @@ class LightProcessExecutor {
 	 * @return array filtered array
 	 */
 	public function getChildProcessesFiltered(callable $filter){
-		$children = [];
+		$children = array();
 		array_walk($this->children, function($item, $key) use(&$children, $filter) {
-			if(true === call_user_func_array($filter, [$item, $key])){
+			if(true === call_user_func_array($filter, array($item, $key))){
 				$children[$key] = $item;
 			}
 		});
@@ -695,7 +695,7 @@ class LightProcessExecutor {
 	 * @return void
 	 */
 	public function loop($flag = \EventBase::LOOP_ONCE){
-		$this->fireExecutorListeners("onStart", [$this]);
+		$this->fireExecutorListeners("onStart", array($this));
 		while(!$this->shutdown || ($this->shutdown && 
 				($this->hasShutdownBehavior(self::EXECUTOR_SHUTDOWN_BEHAVIOR_FLUSH_PENDING_MESSAGES) && $this->router->getPendingMessages() > 0) 
 						|| ($this->hasShutdownBehavior(self::EXECUTOR_SHUTDOWN_BEHAVIOR_WAIT_FOR_PEERS_TERMINATION) && count($this->getChildren()) > 0))
@@ -709,7 +709,7 @@ class LightProcessExecutor {
 				break;
 			}
 			$this->eb->loop($flag);
-			$this->fireExecutorListeners("onExitLoop", [$this]);
+			$this->fireExecutorListeners("onExitLoop", array($this));
 		}
 		$this->freeSocketResources();
 		$this->gracefulShutdown();
