@@ -1,0 +1,346 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BarrierInterface	LightProcessExecutor/Synchronization/BarrierInterface.php	/^interface BarrierInterface {$/;"	i
+BrokenBarrierException	LightProcessExecutor/Synchronization/Exception/BrokenBarrierException.php	/^class BrokenBarrierException extends \\RuntimeException {$/;"	c
+DefaultRouterEventListener	LightProcessExecutor/EventListener/DefaultRouterEventListener.php	/^abstract class DefaultRouterEventListener implements RouterEventListener {$/;"	c
+ExecutorListener	LightProcessExecutor/EventListener/ExecutorListener.php	/^interface ExecutorListener {$/;"	i
+Interceptor	LightProcessExecutor/Message/Interceptor/Interceptor.php	/^interface Interceptor {$/;"	i
+InterceptorRouterException	LightProcessExecutor/Message/Interceptor/Exception/InterceptorRouterException.php	/^class InterceptorRouterException extends \\Exception {$/;"	c
+InterruptedException	LightProcessExecutor/Synchronization/Exception/InterruptedException.php	/^class InterruptedException extends \\RuntimeException {$/;"	c
+LightProcessExecutor	LightProcessExecutor/LightProcessExecutor.php	/^class LightProcessExecutor {$/;"	c
+MessageEvent	LightProcessExecutor/Event/MessageEvent.php	/^class MessageEvent {$/;"	c
+MessageEventProxy	LightProcessExecutor/Message/MessageEventProxy.php	/^class MessageEventProxy {$/;"	c
+MessageHandler	LightProcessExecutor/Message/Handler/MessageHandler.php	/^interface MessageHandler {$/;"	i
+MessageInterceptorEventListener	LightProcessExecutor/Message/EventListener/MessageInterceptorEventListener.php	/^class MessageInterceptorEventListener extends DefaultRouterEventListener {$/;"	c
+PosixSignalBarrier	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^class PosixSignalBarrier implements BarrierInterface {$/;"	c
+Router	LightProcessExecutor/Router/Router.php	/^class Router {$/;"	c
+RouterEventListener	LightProcessExecutor/EventListener/RouterEventListener.php	/^interface RouterEventListener {$/;"	i
+TestListener	bootstrap.php	/^class TestListener implements RouterEventListener {$/;"	c
+TimeoutException	LightProcessExecutor/Synchronization/Exception/TimeoutException.php	/^class TimeoutException extends \\RuntimeException {$/;"	c
+__call	LightProcessExecutor/Message/MessageEventProxy.php	/^	public function __call($method_name, array $args = []){$/;"	f
+__construct	LightProcessExecutor/Event/MessageEvent.php	/^	public function __construct(LightProcessExecutor $executor, $payload, $src, $dst, $id, $fd, $isUrgent = false, $isAck = false, $broadcast = false) {$/;"	f
+__construct	LightProcessExecutor/EventListener/DefaultRouterEventListener.php	/^	public function __construct($priority = 0){$/;"	f
+__construct	LightProcessExecutor/LightProcessExecutor.php	/^	public function __construct() {$/;"	f
+__construct	LightProcessExecutor/Message/EventListener/MessageInterceptorEventListener.php	/^	public function __construct(array $interceptors = []) {$/;"	f
+__construct	LightProcessExecutor/Message/MessageEventProxy.php	/^	public function __construct(MessageEvent $proxifiedObject = null, \\Exception $e = null){$/;"	f
+__construct	LightProcessExecutor/Router/Router.php	/^	public function __construct(LightProcessExecutor $ex, $name) {$/;"	f
+__construct	LightProcessExecutor/Synchronization/Exception/TimeoutException.php	/^	public function __construct($timeout) {$/;"	f
+__construct	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	public function __construct($parties, $segmentSize = NULL){$/;"	f
+__destruct	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	public function __destruct(){$/;"	f
+__sleep	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	public function __sleep(){$/;"	f
+__toString	LightProcessExecutor/Event/MessageEvent.php	/^	public function __toString() {$/;"	f
+__toString	LightProcessExecutor/LightProcessExecutor.php	/^	public function __toString(){$/;"	f
+__wakeup	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	public function __wakeup(){$/;"	f
+ack	LightProcessExecutor/Router/Router.php	/^			$ack = $udata['head4']; \/\/ Message needs ack ?$/;"	v
+addExecutorListener	LightProcessExecutor/LightProcessExecutor.php	/^	public function addExecutorListener(ExecutorListener $l){$/;"	f
+addMessageInterceptor	LightProcessExecutor/Message/EventListener/MessageInterceptorEventListener.php	/^	public function addMessageInterceptor(Interceptor $inter){$/;"	f
+addProcessContextInfo	LightProcessExecutor/LightProcessExecutor.php	/^	public function addProcessContextInfo($pid, array $info){$/;"	f
+addRoute	LightProcessExecutor/Router/Router.php	/^	public function addRoute($pid, $fd, array $args = array()) {$/;"	f
+addRouterEventListener	LightProcessExecutor/Router/Router.php	/^	public function addRouterEventListener(RouterEventListener $listener) {$/;"	f
+addRouterMessageListener	LightProcessExecutor/LightProcessExecutor.php	/^	public function addRouterMessageListener(RouterEventListener $l) {$/;"	f
+alias	LightProcessExecutor/Router/Router.php	/^			$alias = $udata['alias'];$/;"	v
+alias	LightProcessExecutor/Router/Router.php	/^			$alias = (string)$pid;$/;"	v
+alias	LightProcessExecutor/Router/Router.php	/^		$alias = '';$/;"	v
+aliasLen	LightProcessExecutor/Router/Router.php	/^			$aliasLen = $udata['head11'];$/;"	v
+attach	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	private function attach(){$/;"	f
+await	LightProcessExecutor/Synchronization/BarrierInterface.php	/^	public function await($timeout = 0);$/;"	f
+await	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	public function await($timeout = 0) {$/;"	f
+base	LightProcessExecutor/Router/Router.php	/^		$this->base = $ex->getEventBase();$/;"	v
+base	LightProcessExecutor/Router/Router.php	/^	private $base = NULL;$/;"	v
+broadcast	LightProcessExecutor/Event/MessageEvent.php	/^		$this->broadcast = $broadcast;$/;"	v
+broadcast	LightProcessExecutor/Event/MessageEvent.php	/^	private $broadcast = false;$/;"	v
+broadcast	LightProcessExecutor/Router/Router.php	/^			$broadcast = $udata['head10'];$/;"	v
+broken	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^		$broken = shm_get_var($this->shm, 0x3);$/;"	v
+buf	LightProcessExecutor/Router/Router.php	/^		$buf = '';$/;"	v
+buflen	LightProcessExecutor/Router/Router.php	/^			$buflen = strlen($this->readBuffer[$fd]);$/;"	v
+c	LightProcessExecutor/Router/Router.php	/^		$c = 0;$/;"	v
+children	LightProcessExecutor/LightProcessExecutor.php	/^			$this->children = array();$/;"	v
+children	LightProcessExecutor/LightProcessExecutor.php	/^		$children = array();$/;"	v
+children	LightProcessExecutor/LightProcessExecutor.php	/^	protected $children = array();$/;"	v
+chldpid	LightProcessExecutor/LightProcessExecutor.php	/^		$chldpid = pcntl_fork();$/;"	v
+clearPendingMessages	LightProcessExecutor/Router/Router.php	/^	public function clearPendingMessages(){$/;"	f
+code	LightProcessExecutor/LightProcessExecutor.php	/^					$code = pcntl_wexitstatus($status);$/;"	v
+comesFromPid	LightProcessExecutor/Router/Router.php	/^			$comesFromPid = $udata['head9'];$/;"	v
+config	LightProcessExecutor/Router/Router.php	/^		$this->config = $config;$/;"	v
+config	LightProcessExecutor/Router/Router.php	/^	private $config = self::CONFIG_PROC_CTX;$/;"	v
+count	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^		$count = shm_get_var($this->shm, 0x1);$/;"	v
+currentStackEl	LightProcessExecutor/Router/Router.php	/^	private $currentStackEl = NULL;$/;"	v
+data	LightProcessExecutor/Router/Router.php	/^		$data = $serialize === TRUE ? serialize($payload) : $payload;$/;"	v
+dataLen	LightProcessExecutor/Router/Router.php	/^		$dataLen = strlen($data);$/;"	v
+detach	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	private function detach(){$/;"	f
+dst	LightProcessExecutor/Event/MessageEvent.php	/^		$this->dst = $dst;$/;"	v
+dst	LightProcessExecutor/Event/MessageEvent.php	/^	private $dst;$/;"	v
+dst	LightProcessExecutor/Router/Router.php	/^			$dst = $udata['head1']; \/\/ destination pid$/;"	v
+dstRemote	LightProcessExecutor/Router/Router.php	/^			$dstRemote = $udata['head8'];$/;"	v
+eb	LightProcessExecutor/LightProcessExecutor.php	/^			$this->eb = new \\EventBase();$/;"	v
+eb	LightProcessExecutor/LightProcessExecutor.php	/^		$this->eb = new \\EventBase();$/;"	v
+eb	LightProcessExecutor/LightProcessExecutor.php	/^	protected $eb = null;$/;"	v
+eread	LightProcessExecutor/Router/Router.php	/^		$eread = new \\Event($this->base, $fd, \\Event::READ | \\Event::PERSIST, array($this, 'recv'), array_merge(array(&$eread), array($pid), $args));$/;"	v
+err	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^				$err = pcntl_get_last_error();$/;"	v
+ewrite	LightProcessExecutor/Router/Router.php	/^		$ewrite = new \\Event($this->base, $fd, \\Event::WRITE | \\Event::PERSIST, array($this, 'ewrite'), array_merge(array(&$ewrite), array($pid), $args, array('first_stack' => true)));$/;"	v
+ewrite	LightProcessExecutor/Router/Router.php	/^	public function ewrite($fd = NULL, $what = NULL, $args = NULL) {$/;"	f
+exception	LightProcessExecutor/Message/MessageEventProxy.php	/^		$this->exception = $e;$/;"	v
+exception	LightProcessExecutor/Message/MessageEventProxy.php	/^	private $exception = null;$/;"	v
+executor	LightProcessExecutor/Event/MessageEvent.php	/^		$this->executor = $executor;$/;"	v
+executor	LightProcessExecutor/Event/MessageEvent.php	/^	private $executor = NULL;$/;"	v
+executor	LightProcessExecutor/Router/Router.php	/^		$this->executor = $ex;$/;"	v
+executor	LightProcessExecutor/Router/Router.php	/^	private $executor = NULL;$/;"	v
+executorListeners	LightProcessExecutor/LightProcessExecutor.php	/^	private $executorListeners = array();$/;"	v
+exitAfterShutdown	LightProcessExecutor/LightProcessExecutor.php	/^		$this->exitAfterShutdown = $doExit;	$/;"	v
+exitAfterShutdown	LightProcessExecutor/LightProcessExecutor.php	/^	private $exitAfterShutdown = true;$/;"	v
+fd	LightProcessExecutor/Event/MessageEvent.php	/^		$this->fd = $fd;$/;"	v
+fd	LightProcessExecutor/Event/MessageEvent.php	/^	private $fd;$/;"	v
+findRoute	LightProcessExecutor/Router/Router.php	/^	private function findRoute($pid) {$/;"	f
+fireExecutorListeners	LightProcessExecutor/LightProcessExecutor.php	/^	protected function fireExecutorListeners($method, $args = array()){$/;"	f
+fireRouterEventListener	LightProcessExecutor/Router/Router.php	/^	protected function fireRouterEventListener($method, array $args = array()) {$/;"	f
+flags	LightProcessExecutor/Router/Router.php	/^		$flags = (self::ROUTE_OP_SND & (int) $this->routerSendOperationCompleted) | (self::ROUTE_OP_RCV & (int) $this->routerReceiveOperationCompleted);$/;"	v
+flags	LightProcessExecutor/Router/Router.php	/^		$flags = 0;$/;"	v
+flushWrites	LightProcessExecutor/Router/Router.php	/^	public function flushWrites($firstStacked = true){$/;"	f
+fork	LightProcessExecutor/LightProcessExecutor.php	/^	public function fork($name = NULL, callable $parent = NULL, callable $chld = NULL) {$/;"	f
+freeSocketResource	LightProcessExecutor/LightProcessExecutor.php	/^	public function freeSocketResource($pid){$/;"	f
+freeSocketResources	LightProcessExecutor/LightProcessExecutor.php	/^	private function freeSocketResources(){$/;"	f
+from	LightProcessExecutor/Router/Router.php	/^		$from = posix_getpid();$/;"	v
+generateShmkey	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	private function generateShmkey(){$/;"	f
+getAlias	LightProcessExecutor/Router/Router.php	/^	public function getAlias(){$/;"	f
+getAlivedChildren	LightProcessExecutor/LightProcessExecutor.php	/^	public function getAlivedChildren(){$/;"	f
+getChildProcessesFiltered	LightProcessExecutor/LightProcessExecutor.php	/^	public function getChildProcessesFiltered(callable $filter){$/;"	f
+getChildren	LightProcessExecutor/LightProcessExecutor.php	/^	public function getChildren() {$/;"	f
+getDestination	LightProcessExecutor/Event/MessageEvent.php	/^	public function getDestination() {$/;"	f
+getErrno	LightProcessExecutor/Synchronization/Exception/TimeoutException.php	/^	public function getErrno(){$/;"	f
+getEventBase	LightProcessExecutor/LightProcessExecutor.php	/^	public function getEventBase() {$/;"	f
+getException	LightProcessExecutor/Message/MessageEventProxy.php	/^	public function getException(){$/;"	f
+getExecutor	LightProcessExecutor/Event/MessageEvent.php	/^	public function getExecutor() {$/;"	f
+getFd	LightProcessExecutor/Event/MessageEvent.php	/^	public function getFd(){$/;"	f
+getId	LightProcessExecutor/Event/MessageEvent.php	/^	public function getId() {$/;"	f
+getMessageHandlers	LightProcessExecutor/Message/Interceptor/Interceptor.php	/^	public function getMessageHandlers();$/;"	f
+getNumberWaiting	LightProcessExecutor/Synchronization/BarrierInterface.php	/^	public function getNumberWaiting();$/;"	f
+getNumberWaiting	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	public function getNumberWaiting(){$/;"	f
+getParties	LightProcessExecutor/Synchronization/BarrierInterface.php	/^	public function getParties();$/;"	f
+getParties	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	public function getParties(){$/;"	f
+getPayload	LightProcessExecutor/Event/MessageEvent.php	/^	public function getPayload() {$/;"	f
+getPendingMessages	LightProcessExecutor/Router/Router.php	/^	public function getPendingMessages() {$/;"	f
+getPid	LightProcessExecutor/LightProcessExecutor.php	/^	public function getPid(){$/;"	f
+getPrintToStderr	LightProcessExecutor/LightProcessExecutor.php	/^	public function getPrintToStderr(){$/;"	f
+getPriority	LightProcessExecutor/EventListener/DefaultRouterEventListener.php	/^	public function getPriority() {$/;"	f
+getPriority	LightProcessExecutor/EventListener/RouterEventListener.php	/^	public function getPriority();$/;"	f
+getPriority	bootstrap.php	/^		public function getPriority(){$/;"	f
+getProcessContextInfo	LightProcessExecutor/LightProcessExecutor.php	/^	public function getProcessContextInfo($pid){$/;"	f
+getRootPid	LightProcessExecutor/LightProcessExecutor.php	/^	public function getRootPid(){$/;"	f
+getRouter	LightProcessExecutor/Event/MessageEvent.php	/^	public function getRouter() {$/;"	f
+getRouter	LightProcessExecutor/LightProcessExecutor.php	/^	public function getRouter(){$/;"	f
+getRouterEventListeners	LightProcessExecutor/Router/Router.php	/^	public function getRouterEventListeners(){$/;"	f
+getRoutes	LightProcessExecutor/Router/Router.php	/^	public function getRoutes(){$/;"	f
+getSource	LightProcessExecutor/Event/MessageEvent.php	/^	public function getSource() {$/;"	f
+getTTL	LightProcessExecutor/LightProcessExecutor.php	/^	public function getTTL(){$/;"	f
+getTimeoutVal	LightProcessExecutor/Synchronization/Exception/TimeoutException.php	/^	public function getTimeoutVal(){$/;"	f
+getUrgentSignal	LightProcessExecutor/Router/Router.php	/^	public function getUrgentSignal(){$/;"	f
+gracefulShutdown	LightProcessExecutor/LightProcessExecutor.php	/^	private function gracefulShutdown(){$/;"	f
+handleUrgentDelivery	LightProcessExecutor/Router/Router.php	/^	public function handleUrgentDelivery(){$/;"	f
+hasException	LightProcessExecutor/Message/MessageEventProxy.php	/^	public function hasException(){$/;"	f
+hasShutdownBehavior	LightProcessExecutor/LightProcessExecutor.php	/^	public function hasShutdownBehavior($behavior){$/;"	f
+headerSize	LightProcessExecutor/Router/Router.php	/^			$headerSize = $aliasLen + 4 + self::MSG_HEADER_LEN_BYTES;$/;"	v
+id	LightProcessExecutor/Event/MessageEvent.php	/^		$this->id = $id;$/;"	v
+id	LightProcessExecutor/Event/MessageEvent.php	/^	private $id;$/;"	v
+id	LightProcessExecutor/Router/Router.php	/^			$id = $udata['head6']; \/\/ Message identifier$/;"	v
+id	LightProcessExecutor/Router/Router.php	/^		$id = mt_rand(1, pow(2, 32));$/;"	v
+info	LightProcessExecutor/LightProcessExecutor.php	/^				$info = $this->getProcessContextInfo($pid);$/;"	v
+initBarrier	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	private function initBarrier(){$/;"	f
+intercept	LightProcessExecutor/Message/Handler/MessageHandler.php	/^	public function intercept(MessageEventProxy $event);$/;"	f
+interceptors	LightProcessExecutor/Message/EventListener/MessageInterceptorEventListener.php	/^		$this->interceptors = $interceptors;	$/;"	v
+interceptors	LightProcessExecutor/Message/EventListener/MessageInterceptorEventListener.php	/^	private $interceptors = [];$/;"	v
+interrupted	LightProcessExecutor/Router/Router.php	/^		$this->interrupted = $int;$/;"	v
+interrupted	LightProcessExecutor/Router/Router.php	/^	private $interrupted = false;$/;"	v
+isAck	LightProcessExecutor/Event/MessageEvent.php	/^		$this->isAck = $isAck;$/;"	v
+isAck	LightProcessExecutor/Event/MessageEvent.php	/^	private $isAck = false;$/;"	v
+isAck	LightProcessExecutor/Event/MessageEvent.php	/^	public function isAck() {$/;"	f
+isAck	LightProcessExecutor/Router/Router.php	/^			$isAck = $udata['head5'];$/;"	v
+isBroadcast	LightProcessExecutor/Event/MessageEvent.php	/^	public function isBroadcast(){$/;"	f
+isBroken	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	private function isBroken(){$/;"	f
+isInterrupted	LightProcessExecutor/Router/Router.php	/^	public function isInterrupted(){$/;"	f
+isMaster	LightProcessExecutor/LightProcessExecutor.php	/^	public function isMaster(){$/;"	f
+isOperationCompleted	LightProcessExecutor/Router/Router.php	/^	public function isOperationCompleted($opflags, &$flags = 0) {$/;"	f
+isShutdown	LightProcessExecutor/LightProcessExecutor.php	/^	public function isShutdown(){$/;"	f
+isUnicast	LightProcessExecutor/Event/MessageEvent.php	/^	public function isUnicast(){$/;"	f
+isUrgent	LightProcessExecutor/Event/MessageEvent.php	/^		$this->isUrgent = $isUrgent;$/;"	v
+isUrgent	LightProcessExecutor/Event/MessageEvent.php	/^	private $isUrgent = false;$/;"	v
+isUrgent	LightProcessExecutor/Event/MessageEvent.php	/^	public function isUrgent() {$/;"	f
+iteration	LightProcessExecutor/LightProcessExecutor.php	/^	private $iteration = 0;$/;"	v
+key	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^			$this->key = fileinode($this->tmpfile);$/;"	v
+key	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	private $key;$/;"	v
+listenerMethod	LightProcessExecutor/Router/Router.php	/^				$listenerMethod = $this->isInterrupted() ? 'onInterruptReceive' : 'onMessageReceived';$/;"	v
+listeners	LightProcessExecutor/LightProcessExecutor.php	/^			$listeners = $this->router->getRouterEventListeners();$/;"	v
+loop	LightProcessExecutor/LightProcessExecutor.php	/^	public function loop($flag = \\EventBase::LOOP_ONCE){$/;"	f
+mObject	LightProcessExecutor/Router/Router.php	/^					$mObject = new MessageEvent($args[2], $user_payload, $origin, $dstRemote, $id, $fd, $this->isInterrupted() ? TRUE : $urgent, $isAck, $broadcast);$/;"	v
+matches	LightProcessExecutor/Message/Interceptor/Interceptor.php	/^	public function matches(MessageEventProxy $e);$/;"	f
+message	LightProcessExecutor/Router/Router.php	/^			$message = [$/;"	v
+message	LightProcessExecutor/Router/Router.php	/^		$message = [$/;"	v
+messageListeners	LightProcessExecutor/Router/Router.php	/^		$this->messageListeners = $listeners;$/;"	v
+messageListeners	LightProcessExecutor/Router/Router.php	/^		$this->messageListeners = array_merge($this->messageListeners, array());$/;"	v
+messageListeners	LightProcessExecutor/Router/Router.php	/^	private $messageListeners = array();$/;"	v
+messages	LightProcessExecutor/Router/Router.php	/^			$messages = array();$/;"	v
+mstore	LightProcessExecutor/Router/Router.php	/^	private $mstore = array(); $/;"	v
+n	LightProcessExecutor/Router/Router.php	/^		$n = 0;$/;"	v
+name	LightProcessExecutor/Router/Router.php	/^		$this->name = $name;$/;"	v
+name	LightProcessExecutor/Router/Router.php	/^	private $name = NULL;$/;"	v
+nb	LightProcessExecutor/Router/Router.php	/^		$nb = count($this->messageListeners);$/;"	v
+nbPairs	LightProcessExecutor/LightProcessExecutor.php	/^		$nbPairs = count($this->socketpair[$pid]);$/;"	v
+nbpairs	LightProcessExecutor/LightProcessExecutor.php	/^			$nbpairs = count($pairs);  $/;"	v
+nbstackElements	LightProcessExecutor/Router/Router.php	/^		$nbstackElements = isset($this->writestack[intval($fd)]) ?  count($this->writestack[intval($fd)]) : 0;$/;"	v
+notTargeted	LightProcessExecutor/Router/Router.php	/^			$notTargeted = (($dstRemote === self::DST_REMOTE_ALIAS && strcmp($alias, $this->name) !== 0) || ($dstRemote > 1 && $dstRemote !== posix_getpid()));$/;"	v
+notifyAll	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	private function notifyAll($parties){$/;"	f
+onExitLoop	LightProcessExecutor/EventListener/ExecutorListener.php	/^	public function onExitLoop(LightProcessExecutor $executor);$/;"	f
+onInterruptReceive	LightProcessExecutor/EventListener/DefaultRouterEventListener.php	/^	public function onInterruptReceive(MessageEvent $e){$/;"	f
+onInterruptReceive	LightProcessExecutor/EventListener/RouterEventListener.php	/^	public function onInterruptReceive(MessageEvent $e);$/;"	f
+onInterruptReceive	LightProcessExecutor/Message/EventListener/MessageInterceptorEventListener.php	/^	public function onInterruptReceive(MessageEvent $e) {$/;"	f
+onInterruptReceive	bootstrap.php	/^		public function onInterruptReceive(MessageEvent $e){$/;"	f
+onMessageReceived	LightProcessExecutor/EventListener/DefaultRouterEventListener.php	/^	public function onMessageReceived(MessageEvent $e){$/;"	f
+onMessageReceived	LightProcessExecutor/EventListener/RouterEventListener.php	/^	public function onMessageReceived(MessageEvent $e);$/;"	f
+onMessageReceived	LightProcessExecutor/Message/EventListener/MessageInterceptorEventListener.php	/^	public function onMessageReceived(MessageEvent $e) {$/;"	f
+onMessageReceived	bootstrap.php	/^		public function onMessageReceived(MessageEvent $e){$/;"	f
+onMessageSent	LightProcessExecutor/EventListener/DefaultRouterEventListener.php	/^	public function onMessageSent(MessageEvent $e){$/;"	f
+onMessageSent	LightProcessExecutor/EventListener/RouterEventListener.php	/^	public function onMessageSent(MessageEvent $e);$/;"	f
+onMessageSent	LightProcessExecutor/Message/EventListener/MessageInterceptorEventListener.php	/^	public function onMessageSent(MessageEvent $e) {$/;"	f
+onMessageSent	bootstrap.php	/^		public function onMessageSent(MessageEvent $e){$/;"	f
+onPeerShutdown	LightProcessExecutor/EventListener/DefaultRouterEventListener.php	/^	public function onPeerShutdown(LightProcessExecutor $executor, $pid, array $lostMessages){$/;"	f
+onPeerShutdown	LightProcessExecutor/EventListener/RouterEventListener.php	/^	public function onPeerShutdown(LightProcessExecutor $executor, $pid, array $lostMessages);$/;"	f
+onPeerShutdown	LightProcessExecutor/Message/EventListener/MessageInterceptorEventListener.php	/^	public function onPeerShutdown(LightProcessExecutor $executor, $pid, array $lostMessages) {$/;"	f
+onPeerShutdown	bootstrap.php	/^		public function onPeerShutdown(LightProcessExecutor $executor, $pid, array $lostMessages){$/;"	f
+onRouterError	LightProcessExecutor/EventListener/DefaultRouterEventListener.php	/^	function onRouterError($operation, $errno, $errstr, \\Exception $e = NULL){$/;"	f
+onRouterError	LightProcessExecutor/EventListener/RouterEventListener.php	/^	public function onRouterError($operation, $errno, $errstr, \\Exception $e = NULL);$/;"	f
+onRouterError	LightProcessExecutor/Message/EventListener/MessageInterceptorEventListener.php	/^	public function onRouterError($operation, $errno, $errstr, \\Exception $e = NULL) {$/;"	f
+onRouterError	bootstrap.php	/^		public function onRouterError($operation, $errno, $errstr, \\Exception $e = NULL){$/;"	f
+onShutdown	LightProcessExecutor/EventListener/ExecutorListener.php	/^	public function onShutdown(LightProcessExecutor $executor);$/;"	f
+onStart	LightProcessExecutor/EventListener/ExecutorListener.php	/^	public function onStart(LightProcessExecutor $executor);$/;"	f
+origin	LightProcessExecutor/Router/Router.php	/^			$origin = $udata['head2']; \/\/ emitter pid$/;"	v
+pa	LightProcessExecutor/Router/Router.php	/^		$pa = $a->getPriority();$/;"	v
+pairs	LightProcessExecutor/LightProcessExecutor.php	/^		$pairs = NULL;$/;"	v
+pairs	LightProcessExecutor/LightProcessExecutor.php	/^		$pairs = array();$/;"	v
+parties	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^					$parties = shm_get_var($this->shm, 0x2);$/;"	v
+parties	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^		$parties = shm_get_var($this->shm, 0x2);$/;"	v
+parties	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^		$this->parties = $parties;$/;"	v
+parties	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	private $parties;$/;"	v
+payload	LightProcessExecutor/Event/MessageEvent.php	/^		$this->payload = $payload;$/;"	v
+payload	LightProcessExecutor/Event/MessageEvent.php	/^	private $payload;$/;"	v
+payload	LightProcessExecutor/Router/Router.php	/^			$payload = substr($this->readBuffer[$fd], $headerSize, $payloadLen);$/;"	v
+payloadLen	LightProcessExecutor/Router/Router.php	/^			$payloadLen = $udata['payload'];$/;"	v
+pb	LightProcessExecutor/Router/Router.php	/^		$pb = $b->getPriority();$/;"	v
+pid	LightProcessExecutor/LightProcessExecutor.php	/^		$this->pid = posix_getpid();$/;"	v
+pid	LightProcessExecutor/LightProcessExecutor.php	/^	protected $pid;$/;"	v
+pid	LightProcessExecutor/Router/Router.php	/^			$pid = $args[1];$/;"	v
+pid	LightProcessExecutor/Router/Router.php	/^			$pid = null;$/;"	v
+pid2	bootstrap.php	/^$pid2 = $root->fork("", null, function($executor){$/;"	v
+ppid	LightProcessExecutor/LightProcessExecutor.php	/^			$this->ppid = posix_getppid();$/;"	v
+ppid	LightProcessExecutor/LightProcessExecutor.php	/^	protected $ppid;$/;"	v
+printRoutes	LightProcessExecutor/Router/Router.php	/^	private function printRoutes() {$/;"	f
+printToStderr	LightProcessExecutor/LightProcessExecutor.php	/^		$this->printToStderr = (bool)$bool;$/;"	v
+printToStderr	LightProcessExecutor/LightProcessExecutor.php	/^	private $printToStderr = false;$/;"	v
+priority	LightProcessExecutor/EventListener/DefaultRouterEventListener.php	/^		$this->priority = $priority;$/;"	v
+priority	LightProcessExecutor/EventListener/DefaultRouterEventListener.php	/^	private $priority = 0;$/;"	v
+processExitCode	LightProcessExecutor/LightProcessExecutor.php	/^		$this->processExitCode = $code;$/;"	v
+processExitCode	LightProcessExecutor/LightProcessExecutor.php	/^	protected  $processExitCode = 0;$/;"	v
+processMessageEventInterceptor	LightProcessExecutor/Message/EventListener/MessageInterceptorEventListener.php	/^	private function processMessageEventInterceptor(MessageEventProxy $e){$/;"	f
+proxifiedObject	LightProcessExecutor/Message/MessageEventProxy.php	/^		$this->proxifiedObject = $proxifiedObject;$/;"	v
+proxifiedObject	LightProcessExecutor/Message/MessageEventProxy.php	/^	private $proxifiedObject = null;$/;"	v
+pushMessage	LightProcessExecutor/Router/Router.php	/^	private function pushMessage(array $message, $priority = -1){$/;"	f
+read	LightProcessExecutor/LightProcessExecutor.php	/^		$read = $this->children[$pid];$/;"	v
+readBuffer	LightProcessExecutor/Router/Router.php	/^	private $readBuffer = '';$/;"	v
+readChildState	LightProcessExecutor/LightProcessExecutor.php	/^	public function readChildState($pid){$/;"	f
+recv	LightProcessExecutor/Router/Router.php	/^	public function recv($fd = null, $what = NULL, $args = NULL) {$/;"	f
+remote	LightProcessExecutor/Router/Router.php	/^			$remote = self::DST_REMOTE_ALIAS;$/;"	v
+remote	LightProcessExecutor/Router/Router.php	/^		$remote = $broadcast ? self::DST_REMOTE_BROADCAST : $pid;$/;"	v
+removeChild	LightProcessExecutor/LightProcessExecutor.php	/^	private function removeChild($pid) {$/;"	f
+removeExecutorListener	LightProcessExecutor/LightProcessExecutor.php	/^	public function removeExecutorListener(ExecutorListener $l){$/;"	f
+removeMessageInterceptor	LightProcessExecutor/Message/EventListener/MessageInterceptorEventListener.php	/^	public function removeMessageInterceptor(Interceptor $inter){$/;"	f
+removeRoute	LightProcessExecutor/Router/Router.php	/^	public function removeRoute($pid) {$/;"	f
+removeRouterEventListener	LightProcessExecutor/Router/Router.php	/^	public function removeRouterEventListener(RouterEventListener $l) {$/;"	f
+removeRouterMessageListener	LightProcessExecutor/LightProcessExecutor.php	/^	public function removeRouterMessageListener(RouterEventListener $l) {$/;"	f
+removed	LightProcessExecutor/LightProcessExecutor.php	/^		$removed = $this->removeChild($pid);$/;"	v
+reset	LightProcessExecutor/Synchronization/BarrierInterface.php	/^	public function reset();$/;"	f
+reset	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	public function reset(){$/;"	f
+restart	LightProcessExecutor/LightProcessExecutor.php	/^	public function restart(){$/;"	f
+ret	LightProcessExecutor/Router/Router.php	/^		$ret = FALSE;$/;"	v
+ret	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^				$ret = pcntl_sigtimedwait(array($this->signal), $siginfo, $timeout);$/;"	v
+ret	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^				$ret = pcntl_sigwaitinfo( array($this->signal), $siginfo);$/;"	v
+root	bootstrap.php	/^$root = new LightProcessExecutor();$/;"	v
+rootpid	LightProcessExecutor/LightProcessExecutor.php	/^		$this->rootpid = $this->pid = posix_getpid();$/;"	v
+rootpid	LightProcessExecutor/LightProcessExecutor.php	/^	private $rootpid = null;$/;"	v
+route	LightProcessExecutor/Router/Router.php	/^				$route = $this->routes[$comesFromPid];$/;"	v
+route	LightProcessExecutor/Router/Router.php	/^			$route = $this->findRoute($pid);$/;"	v
+route	LightProcessExecutor/Router/Router.php	/^		$route = $this->findRoute($message['dst']);$/;"	v
+route	LightProcessExecutor/Router/Router.php	/^		$route = NULL;$/;"	v
+router	LightProcessExecutor/LightProcessExecutor.php	/^			$this->router = new Router($this, $name);$/;"	v
+router	LightProcessExecutor/LightProcessExecutor.php	/^		$this->router = new Router($this, $this->routerName);$/;"	v
+router	LightProcessExecutor/LightProcessExecutor.php	/^	protected $router = null;$/;"	v
+routerEventComparisonFunction	LightProcessExecutor/Router/Router.php	/^	private function routerEventComparisonFunction(RouterEventListener $a, RouterEventListener $b){$/;"	f
+routerName	LightProcessExecutor/LightProcessExecutor.php	/^	private $routerName = 'root';$/;"	v
+routerReceiveOperationCompleted	LightProcessExecutor/Router/Router.php	/^			$this->routerReceiveOperationCompleted = true;$/;"	v
+routerReceiveOperationCompleted	LightProcessExecutor/Router/Router.php	/^		$this->routerReceiveOperationCompleted = FALSE;$/;"	v
+routerReceiveOperationCompleted	LightProcessExecutor/Router/Router.php	/^	private $routerReceiveOperationCompleted = false;$/;"	v
+routerSendOperationCompleted	LightProcessExecutor/Router/Router.php	/^				$this->routerSendOperationCompleted = TRUE;$/;"	v
+routerSendOperationCompleted	LightProcessExecutor/Router/Router.php	/^		$this->routerSendOperationCompleted = FALSE;$/;"	v
+routerSendOperationCompleted	LightProcessExecutor/Router/Router.php	/^	private $routerSendOperationCompleted = false;$/;"	v
+routes	LightProcessExecutor/Router/Router.php	/^	private $routes = array();$/;"	v
+semaphore	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	private $semaphore;$/;"	v
+send	LightProcessExecutor/Router/Router.php	/^	public function send($payload, $pid, $serialize = true, $ack = false, $broadcast = false, $urgent = false) {$/;"	f
+serialize	LightProcessExecutor/Router/Router.php	/^			$serialize = $udata['head3'];$/;"	v
+setConfig	LightProcessExecutor/Router/Router.php	/^	public function setConfig($config){$/;"	f
+setExitAfterShutdown	LightProcessExecutor/LightProcessExecutor.php	/^	public function setExitAfterShutdown($doExit){$/;"	f
+setInterrupted	LightProcessExecutor/Router/Router.php	/^	public function setInterrupted($int = true){$/;"	f
+setPayload	LightProcessExecutor/Event/MessageEvent.php	/^	public function setPayload($payload){$/;"	f
+setPrintToStderr	LightProcessExecutor/LightProcessExecutor.php	/^	public function setPrintToStderr($bool){$/;"	f
+setProcessExitCode	LightProcessExecutor/LightProcessExecutor.php	/^	public function setProcessExitCode($code){$/;"	f
+setRouterEventListeners	LightProcessExecutor/Router/Router.php	/^	public function setRouterEventListeners(array $listeners = array()){$/;"	f
+setShutdownBehavior	LightProcessExecutor/LightProcessExecutor.php	/^	public function setShutdownBehavior($behavior){$/;"	f
+setSignal	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	public function setSignal($signal){$/;"	f
+setTTL	LightProcessExecutor/LightProcessExecutor.php	/^	public function setTTL($ttl){$/;"	f
+setUrgentSignal	LightProcessExecutor/Router/Router.php	/^	public function setUrgentSignal($signo){$/;"	f
+shiftMessage	LightProcessExecutor/Router/Router.php	/^	private function shiftMessage($fd){$/;"	f
+shm	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^		$this->shm = shm_attach($this->key, $this->shmSegmentSize);$/;"	v
+shm	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	private $shm;$/;"	v
+shmSegmentSize	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^		$this->shmSegmentSize = $segmentSize === NULL ? $this->shmSegmentSize : $segmentSize;$/;"	v
+shmSegmentSize	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	private $shmSegmentSize = 8192;$/;"	v
+shutdown	LightProcessExecutor/LightProcessExecutor.php	/^		$this->shutdown = TRUE;$/;"	v
+shutdown	LightProcessExecutor/LightProcessExecutor.php	/^		$this->shutdown = false;	$/;"	v
+shutdown	LightProcessExecutor/LightProcessExecutor.php	/^	private $shutdown = false;$/;"	v
+shutdown	LightProcessExecutor/LightProcessExecutor.php	/^	public function shutdown(){$/;"	f
+shutdownBehavior	LightProcessExecutor/LightProcessExecutor.php	/^		$this->shutdownBehavior = $behavior;$/;"	v
+shutdownBehavior	LightProcessExecutor/LightProcessExecutor.php	/^	private $shutdownBehavior = self::EXECUTOR_SHUTDOWN_BEHAVIOR_FLUSH_PENDING_MESSAGES;$/;"	v
+sighandler	LightProcessExecutor/LightProcessExecutor.php	/^	public function sighandler($signo, $wait = NULL, $pid = -1) {$/;"	f
+siginfo	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^			$siginfo = [];$/;"	v
+signal	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^		$this->signal = $signal;$/;"	v
+signal	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	private $signal = SIGUSR2;$/;"	v
+signo	LightProcessExecutor/LightProcessExecutor.php	/^					$signo = pcntl_wtermsig($status);$/;"	v
+signo	LightProcessExecutor/LightProcessExecutor.php	/^			$signo = $this->router->getUrgentSignal();$/;"	v
+socketpair	LightProcessExecutor/LightProcessExecutor.php	/^	private $socketpair = array();$/;"	v
+src	LightProcessExecutor/Event/MessageEvent.php	/^		$this->src = $src;$/;"	v
+src	LightProcessExecutor/Event/MessageEvent.php	/^	private $src;$/;"	v
+status	LightProcessExecutor/LightProcessExecutor.php	/^			$status = NULL;$/;"	v
+stopPropagation	LightProcessExecutor/Message/Interceptor/Interceptor.php	/^	public function stopPropagation();$/;"	f
+submit	LightProcessExecutor/LightProcessExecutor.php	/^	public function submit(\/* mixed *\/ $data, $pid, $serialize = true, $ack = false, $broadcast = false, $urgent = false) {$/;"	f
+that	LightProcessExecutor/Router/Router.php	/^				$that = $this;$/;"	v
+that	LightProcessExecutor/Router/Router.php	/^			$that = $this;$/;"	v
+timeout	LightProcessExecutor/Synchronization/Exception/TimeoutException.php	/^		$this->timeout = (int)$timeout;$/;"	v
+timeout	LightProcessExecutor/Synchronization/Exception/TimeoutException.php	/^	private $timeout;$/;"	v
+tmpfile	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^			$this->tmpfile = tempnam('\/tmp', 'barrier');$/;"	v
+tmpfile	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^	private $tmpfile;$/;"	v
+ttl	LightProcessExecutor/LightProcessExecutor.php	/^		$this->ttl = $ttl;$/;"	v
+ttl	LightProcessExecutor/LightProcessExecutor.php	/^		$ttl = (int)$ttl;$/;"	v
+ttl	LightProcessExecutor/LightProcessExecutor.php	/^	private $ttl = self::TTL;$/;"	v
+udata	LightProcessExecutor/Router/Router.php	/^			$udata = unpack("V11head\/a${aliasLen}alias\/Vpayload", $this->readBuffer[$fd]);$/;"	v
+udata	LightProcessExecutor/Router/Router.php	/^			$udata = unpack('V11head', $this->readBuffer[$fd]);$/;"	v
+uptime	LightProcessExecutor/LightProcessExecutor.php	/^				$uptime = time() - $info['uptime'];$/;"	v
+urgent	LightProcessExecutor/Router/Router.php	/^			$urgent = $udata['head7']; \/\/ Urgent ?$/;"	v
+urgentMode	LightProcessExecutor/Router/Router.php	/^		$this->urgentMode = FALSE;$/;"	v
+urgentMode	LightProcessExecutor/Router/Router.php	/^		$this->urgentMode = TRUE;$/;"	v
+urgentMode	LightProcessExecutor/Router/Router.php	/^	private $urgentMode = false;$/;"	v
+urgentSigno	LightProcessExecutor/Router/Router.php	/^		$this->urgentSigno = $signo;$/;"	v
+urgentSigno	LightProcessExecutor/Router/Router.php	/^	private $urgentSigno = self::DEFAULT_INTERRUPT_SIGNAL;	$/;"	v
+user_payload	LightProcessExecutor/Router/Router.php	/^					$user_payload = $serialize ? unserialize($payload) : $payload;$/;"	v
+wait	LightProcessExecutor/LightProcessExecutor.php	/^			$wait = $wait === NULL ? WNOHANG : 0;$/;"	v
+waiting	LightProcessExecutor/Synchronization/PosixSignalBarrier.php	/^		$waiting = $this->parties - (int)shm_get_var($this->shm, 0x1);$/;"	v
+writeBuffer	LightProcessExecutor/Router/Router.php	/^	private $writeBuffer = '';$/;"	v
+writestack	LightProcessExecutor/Router/Router.php	/^	private $writestack = array();$/;"	v

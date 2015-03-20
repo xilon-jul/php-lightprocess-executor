@@ -17,16 +17,33 @@ class MessageEventProxy {
 	
 	private $proxifiedObject = null;
 	private $exception = null;
-	
+        private $messageType = null;
+
+        const MESSAGE_SENT = 1;
+        const MESSAGE_RECEIVED = 2;
+        const MESSAGE_RECEIVED_INTERRUPTED = 3;
+        const MESSAGE_EXCEPTION = 4;
+
+
 	/**
 	 * Constructs a new proxy class object by giving him the proxified object and the underlying exception if any
 	 * @param MessageEvent $proxifiedObject the proxified object
 	 * @param \Exception $e the exception
 	 */
-	public function __construct(MessageEvent $proxifiedObject = null, \Exception $e = null){
+	public function __construct($messageTypeConstant, MessageEvent $proxifiedObject = null, \Exception $e = null){
 		$this->proxifiedObject = $proxifiedObject;
-		$this->exception = $e;
-	}
+                $this->exception = $e;
+                $this->messageType = $messageTypeConstant;
+        }
+        
+        /**
+         * Returns the message event type where this interceptor hooks
+         * @see MessageEventProxy::MESSAGE_XXX
+         * @return int constant 
+         */
+        public function getMessageType(){
+            return $this->messageType;
+        }
 	
 	/**
 	 * Returns true if this proxified object aggregates an exception, false otherwise 

@@ -33,7 +33,7 @@ class MessageInterceptorEventListener extends DefaultRouterEventListener {
 	}
 	
 	public function onInterruptReceive(MessageEvent $e) {
-		$this->processMessageEventInterceptor(new MessageEventProxy($e));
+		$this->processMessageEventInterceptor(new MessageEventProxy(MessageEventProxy::MESSAGE_RECEIVED_INTERRUPTED, $e));
 	}
 	
 	/**
@@ -52,7 +52,7 @@ class MessageInterceptorEventListener extends DefaultRouterEventListener {
 	 * @see LightProcessExecutor\EventListener.DefaultRouterEventListener::onMessageReceived()
 	 */
 	public function onMessageReceived(MessageEvent $e) {
-		$this->processMessageEventInterceptor(new MessageEventProxy($e));
+		$this->processMessageEventInterceptor(new MessageEventProxy(MessageEventProxy::MESSAGE_RECEIVED,$e));
 	}
 	
 	/**
@@ -61,7 +61,7 @@ class MessageInterceptorEventListener extends DefaultRouterEventListener {
 	 * @see LightProcessExecutor\EventListener.DefaultRouterEventListener::onMessageSent()
 	 */
 	public function onMessageSent(MessageEvent $e) {
-		$this->processMessageEventInterceptor(new MessageEventProxy($e));
+		$this->processMessageEventInterceptor(new MessageEventProxy(MessageEventProxy::MESSAGE_SENT, $e));
 	}
 	
 	/**
@@ -70,7 +70,7 @@ class MessageInterceptorEventListener extends DefaultRouterEventListener {
 	 * @see LightProcessExecutor\EventListener.DefaultRouterEventListener::onRouterError()
 	 */
 	public function onRouterError($operation, $errno, $errstr, \Exception $e = NULL) {
-		$this->processMessageEventInterceptor(new MessageEventProxy(null, new InterceptorRouterException($errstr, $errno, $e)));
+		$this->processMessageEventInterceptor(new MessageEventProxy(MessageEventProxy::MESSAGE_EXCEPTION, null, new InterceptorRouterException($errstr, $errno, $e)));
 	}
 	
 	/**
